@@ -27,7 +27,7 @@ ui <-bs4DashPage(
   sidebar = bs4DashSidebar(disable = F,
                            inputId = "main_sidebar",
                            title = strong("DASHBOARD",style = "color:#000000;font-size:22px"),
-                           src = "dash_logo.png",
+                           src = "https://github.com/mleal93/projeto_dengue_git/blob/master/www/dash_logo.png",
                            status = "primary",
                            expand_on_hover = T,
                            elevation = 5,skin = "light",
