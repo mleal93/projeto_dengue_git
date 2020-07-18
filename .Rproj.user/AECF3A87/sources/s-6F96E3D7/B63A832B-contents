@@ -1,7 +1,7 @@
 
 library(devtools)
-s <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/server.R")
-ui     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/ui.R")
+obj1     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/server.R")
+obj2     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/ui.R")
 
 
-shinyApp(ui = ui$value, server = server)
+shinyApp(ui = ui, server = server)
