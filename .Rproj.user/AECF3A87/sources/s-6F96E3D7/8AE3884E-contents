@@ -30,7 +30,7 @@ ui <-bs4DashPage(
   sidebar = bs4DashSidebar(disable = F,
                            inputId = "main_sidebar",
                            title = strong("Dashboard Dengue",style = "text-align:center;color:#000000;font-size:22px"),
-                           src = "https://github.com/mleal93/projeto_dengue_git/blob/master/www/dengue_logo5.png",
+                           src = "http://rancharia.sp.gov.br/images/noticias/855/dengue.png",
                            status = "primary",
                            expand_on_hover = T,
                            elevation = 5,skin = "light",
@@ -56,7 +56,7 @@ ui <-bs4DashPage(
     <center>
        <div style="display:inline-flex">
         <a href=" ">
-        <img src="sec_saude.png" style="height:100px">
+        <img src="http://www.saude.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2020-02/LogoSaude2019_Horizontal.png" style="height:100px">
       </a>
         <a href=" "> 
           <i class="fa fa-github" style="font-size:20px; margin: 0px 5px"></i>
@@ -71,7 +71,7 @@ ui <-bs4DashPage(
           <h5>E-mail</h5>
         </a>
         <a href=" ">
-        <img src="logo_uem.png" style="height:125px">
+        <img src="https://github.com/mleal93/projeto_dengue_git/blob/master/www/logo_uem.png" style="height:125px">
       </a>
       </div>
     </center>
