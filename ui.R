@@ -2,7 +2,7 @@
 library(shiny)
 
 
-ui <-navbarPage("App Title",
+ui <-navbarPage("Dashboard Dengue",
                    tabPanel("Plot"),
                    navbarMenu("More",
                               tabPanel("Summary"),
