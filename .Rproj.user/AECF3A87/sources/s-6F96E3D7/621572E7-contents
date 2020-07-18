@@ -1,0 +1,260 @@
+
+jscode <- "shinyjs.toTop = function() {document.body.scrollTop = 0;}"
+library(shinyBS)
+library(bsplus)
+
+# sobretaxa <-dropdownButton(
+#   inputId = "mydropdown",
+#   label = "SOBRE",
+#   icon = icon("question"),
+#   status = "primary",
+#   circle = FALSE,
+#   tooltip =  tooltipOptions(title = "Clique para ver informações sobre este painel !"),
+#   fluidRow(column(width=12,
+#                   tags$h3(strong("SOBRE")))),
+#   withMathJax(),fluidRow(
+#     column(width=12,
+#            "Da biologia temos a definição de um número usualmente denotado
+#            por",' \\( R_0 \\) ',". De forma simples," ,' \\( R_0 \\) ',
+#            "Suscetíveis: São todas as pessoas que podem, em algum momento, ser infectadas",br(),br(),
+#            "Expostos: São todas as pessoas que já se contaminaram, mas a doença está no período de incubação.",br(),br(),
+#            "Infectados: Este grupo é formado pelas pessoas infectadas que estão no período infeccioso, ou seja, são capazes de transmitir a doença.",br(),br(), 
+#            "Recuperados: Aqui temos que tomar um cuidado com a nomenclatura. Ao se usar a palavra recuperados dá-se a entender que as pessoas 
+#            deste grupo se recuperaram da infecção. No entanto, o modelo visa estudar o comportamento da infecção e neste sentido toda pessoa que foi infectada e não é mais capaz de transmitir a 
+#            infecção entra neste grupo, ou seja, o grupo dos recuperados é formado pelas pessoas que foram curadas e também por pessoas que venham a falecer em decorrência dela.",br(),br(),
+#            "No modelo SEIR","\\(R_0=\\beta/\\gamma\\)", "onde",
+#            "\\(\\beta\\)", "é a taxa de propagação (para algumas cidades é possível obter uma estimativa desta taxa na aba ao lado) e",
+#            "\\(\\gamma\\)", "é a taxa de recuperação dada por", "\\(1/t\\)", "onde ", "\\(t\\)",
+#            "é o tempo médio em que uma pessoa infectada é capaz de infectar outras pessoas (período infeccioso). Artigos científicos comprovam
+#             que este tempo é em torno de 10 dias, por este motivo consideramos","\\(\\gamma=0,1\\)."))
+# )
+# 
+# 
+# 
+
+sobre3 <- dropdown(
+  
+  fluidRow(column(width=12,tags$h2(strong("SOBRE")))),
+  fluidRow(column(width = 12,
+                  bs4Card(
+                    title = tags$div(HTML('<i class="fa fa-info-circle"style = "color:#0072B2;font-size:50px;padding-left:0px;"></i>
+                                                     <b style = "padding-left:0px;color:#000000;font-size:30px;">
+                                                     Coeficiente de Incidência </b>')),
+                    width = 12,
+                    status = "transparent", 
+                    closable = FALSE,
+                    maximizable = TRUE, 
+                    collapsible = FALSE,
+                    collapsed = FALSE,
+                    elevation = 5,
+                    
+                    withMathJax(),
+                    "Número de casos confirmados de COVID-19 por 1.000.000 habitantes, considerando a população residente atual.",withMathJax(),
+                    "$$ \\frac{ \\text{Número de casos confirmados}} { \\text{População Total residente}} \\times 1.000.000 $$"
+                    
+                  ))),
+  fluidRow(column(width = 12,
+                  bs4Card(
+                    title = tags$div(HTML('<i class="fa fa-info-circle"style = "color:#0072B2;font-size:50px;padding-left:0px;"></i>
+                                                     <b style = "padding-left:0px;color:#000000;font-size:30px;">
+                                                     Dados Populacionais </b>')),
+                    width = 12,
+                    status = "transparent", 
+                    closable = FALSE,
+                    maximizable = TRUE, 
+                    collapsible = FALSE,
+                    collapsed = FALSE,
+                    elevation = 5,
+                    
+                    fluidRow(
+                      column(width=12,
+                             dataTableOutput("table_populacao2",width = 550))),
+                    fluidRow(column(width=12,HTML("<b>Fontes:</b>
+  <br><b>Dados 15ª Regional : </b> Disponibilizados diariamente via planilha eletrônica.
+  <br><b>Dados populacionais (Data e Hora da última Consulta: 02/06/2020 às 12h59min) :<br></b><a href='https://www.ibge.gov.br/cidades-e-estados.html?view=municipio'>
+    https://www.ibge.gov.br/cidades-e-estados.html?view=municipio</a>")))
+                  ))),
+  
+  
+  
+  
+  
+  style = "jelly", icon = icon("question"),
+  status = "primary", width = "auto",
+  tooltip =  tooltipOptions(title = "Vaja mais sobre este gráfico!",placement = "right"),
+  animate = animateOptions(
+    enter = animations$fading_entrances$fadeInLeftBig,duration = 0.25,
+    exit = animations$fading_exits$fadeOutLeftBig
+  )
+)
+
+
+informe <<- bs4TabPanel(tabName = strong("PANORAMA GERAL"),active = TRUE,
+# tags$div(HTML('<i class="fa fa-clipboard"style = "color:#0072B2;font-size:30px"></i>
+#                                            <b style = "padding-left:10px;color:#000000;font-size:16px">PANORAMA GERAL</b>')),
+
+  
+                        fluidRow(column(width=12,
+    HTML('<i class="fa fa-clipboard"style = "color:#0072B2;font-size:50px;padding-left:0px;"></i>
+    <b style = "padding-left:0px;color:#000000;font-size:30px;">PANORAMA - 15ª  REGIONAL DO ESTADO DO PARANÁ </b>'))),
+fluidRow(
+  
+  bs4Card(
+    title = fluidRow(div(HTML('<i class="fa fa-info-circle"style = "color:#0072B2;font-size:50px"></i>'),
+                         tags$b(paste0(numero_casos_total[1] ," CASOS CONFIRMADOS"))),
+                     div(HTML('<i class="fa fa-cross"style = "color:#0072B2;font-size:50px;padding-left:50px"></i>'),
+                         tags$b(paste0(obitos[1] ," ÓBITOS CONFIRMADOS"))),
+                     div(HTML('<i class="fa fa-calendar-check"style = "color:#0072B2;font-size:50px;padding-left:50px"></i>'),
+                         tags$b(paste0("Atualizado em : ",format(data_fim,format="%d/%m/%Y"))))
+                     ,style="font-size:24px"),
+    width = 12,
+    status = "transparent", 
+    closable = FALSE,
+    maximizable = TRUE, 
+    collapsible = TRUE,
+    collapsed = TRUE,
+    labelText = icon("question"),
+    labelTooltip = HTML("Clieque no icone '+' para ver mais informações. Clique no icone [ ] para ampliar para tela cheia."),
+    
+    
+    
+    elevation = 5,
+    #############
+    fluidRow(column(width = 6,
+                    fluidRow(column(width=12,
+                                    bs_embed_tooltip(
+                                      circleButton(
+                                        inputId = "left",
+                                        size = "sm",
+                                        status = "red",
+                                        icon = icon("arrow-left",'fa-2x')),
+                                      placement = "left",
+                                      title = "Clique para avançar para a esquerda"),
+                                    style = sprintf("text-align:right;padding-left:0px;")))
+                    
+    ),
+    column(width = 6,
+           fluidRow(column(width=12,
+                           bs_embed_tooltip(
+                             circleButton(
+                               inputId = "right",
+                               size = "sm",
+                               status = "red",
+                               icon = icon("arrow-right",'fa-2x')),
+                             placement = "right",
+                             title = "Clique para avançar para a direita"),
+                           style = sprintf("text-align:left;padding-left:0px;")))
+           
+           
+    )),
+    textOutput("counter"),
+    uiOutput("telas_panorama")
+  )),
+fluidRow(
+  column(width = 12,
+         
+         bs4Card(
+           title = fluidRow(HTML('<i class="fa fa-info-circle"style = "color:#0072B2;font-size:50px"></i>'),
+                            tags$b("CASOS E INCIDÊNCIAS POR CIDADE",style="font-size:24px"),
+                            div(bs_embed_tooltip(prettySwitch(
+                              inputId = "switch2",
+                              label = strong(textOutput("switch2label")),width = 30,
+                              fill = TRUE, status = "primary"
+                            ),placement = "left",
+                            title = "Selecione para habilitar diferentes modos para este gráfico."),style="padding-left:470px;paddint-top:10px;")),
+           width = 12,
+           status = "transparent", 
+           closable = FALSE,
+           maximizable = TRUE, 
+           collapsible = TRUE,
+           collapsed = FALSE,
+           labelText = icon("question"),
+           labelTooltip = HTML("Clieque no icone,", '<i class="fa fa-toggle-on"></i>',"para visualizar número de casos para as cidade da 15ª Regional."),
+           
+           elevation = 5,
+           sobre3,
+           espaco_html(1),
+           fluidRow(column(width=12,
+                           withSpinner(ui_element = plotlyOutput("plot_numero_casos_cidades",height = qtd_cidade*22),type = 1)))
+           #############
+           
+           
+           
+         )
+  )),
+bs4Card(
+  title = tags$div(HTML('<i class="fa fa-info-circle"style = "color:#0072B2;font-size:50px"></i>'),
+                   tags$b(" EVOLUÇÃO DOS CASOS E INCIDÊNCIAS"),style="font-size:24px"),
+  width = 12,
+  status = "transparent", 
+  closable = FALSE,
+  maximizable = FALSE, 
+  collapsible = FALSE,
+  collapsed = FALSE,
+  labelText = icon("question"),
+  labelTooltip = "É mostrado a evolução dos casos e as incidências para as cidades da 15ª Regional, no decorrer dos dias.",
+  
+  elevation = 5,
+  textOutput("counter2"),
+  fluidRow(column(width = 1,
+                  fluidRow(column(width=12,
+                                  bs_embed_tooltip(
+                                    circleButton(
+                                      inputId = "left2",
+                                      size = "sm",
+                                      status = "red",
+                                      icon = icon("arrow-left",'fa-2x')),
+                                    placement = "left",
+                                    title = "Clique para avançar para a esquerda"),
+                                  style = sprintf("text-align:right;padding-left:0px;")))
+                  ),
+           column(width = 10,
+                  #HTML('<div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval="10000">'),
+                  div(uiOutput("telas_gifs")),
+           ),
+           column(width = 1,
+                  fluidRow(column(width=12,
+                                  bs_embed_tooltip(
+                                    circleButton(
+                                      inputId = "right2",
+                                      size = "sm",
+                                      status = "red",
+                                      icon = icon("arrow-right",'fa-2x')),
+                                    placement = "right",
+                                    title = "Clique para avançar para a direita"),
+                                  style = sprintf("text-align:left;padding-left:0px;")))
+                  
+                  ))),
+fluidRow( 
+  bs4Card(title= fluidRow(HTML('<i class="fa fa-map-marker-alt"style = "color:#0072B2;font-size:50px"></i>
+                                               <b style = "padding-left:25px;color:#000000;font-size:30px">
+                                               CIDADES COM CASOS CONFIRMADOS </b>'),
+                          
+                          useShinyjs(),
+                          extendShinyjs(text = jscode),
+                          
+                          fluidRow(column(width=12,align="right",
+                                          bs_embed_tooltip(
+                                            circleButton(
+                                              inputId = "toTop6",
+                                              size = "sm",
+                                              status = "red",
+                                              icon = icon("arrow-up",'fa-2x')),
+                                            placement = "right",
+                                            title = "Clique para ir para o topo da página"),
+                                          style = sprintf("text-align:right;padding-left:600px;"))),
+                          
+  ),
+  width = 12,
+  status = "transparent", 
+  closable = FALSE,
+  maximizable = TRUE, 
+  collapsible = FALSE,
+  collapsed = FALSE,
+  elevation = 5,  
+  leafletOutput("map2",height = 500)
+  )) 
+
+  
+  
+  )

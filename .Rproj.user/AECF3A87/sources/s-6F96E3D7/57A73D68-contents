@@ -1,0 +1,110 @@
+source(file = "header.R",        local = FALSE,encoding = "UTF-8")
+source(file = "aba_panorama_geral.R",        local = FALSE,encoding = "UTF-8")
+source(file = "aba_mapa_cidades.R",          local = FALSE,encoding = "UTF-8")
+#source(file = "aba_nivel_risco.R",           local = FALSE,encoding = "UTF-8")
+# source(file = "aba_colaboradores.R",         local = FALSE,encoding = "UTF-8")
+# source(file = "aba_calculadora.R",           local = FALSE,encoding = "UTF-8")
+# source(file = "aba_comportamento_inicial.R", local = FALSE,encoding = "UTF-8")
+ source(file = "aba_configuracoes.R",         local = FALSE,encoding = "UTF-8")
+
+# info_alert <<- fluidRow(espaco_html(2), box(title = tags$div(HTML('<i class="fa fa-info-circle"style = "color:#0072B2;font-size:50px"></i>
+#                                                <b style = "padding-left:25px;color:#000000;font-size:30px">
+#                                                INFORMAÇÃO </b>')), width=12    ),
+#                          hr(style="border-color: gray;opacity:0.5;"),
+#                          fluidRow(
+#                            column(width=12,
+#                                   div(style="font-size:30px;text-align:justify;",
+#                                       "Não foi possível a atualização dos dados do município de Maringá por problemas no repasse da informação.
+#            Assim que os dados forem atualizados pelo município, o painel será atualizado! Para os demais municípios, 
+#            a ultima atualização é válida.")
+#                            )
+#                          ))
+# 
+# 
+# 
+# informacao <<-  dropdown(useShinyjs(),
+#   info_alert,
+#   style = "jelly", icon = icon("info-circle","fa-2x"),inputId = "btn1",
+#     status = "primary", width = "auto",tooltip =  tooltipOptions(title = "Clique para ver informações !"),
+#     animate = animateOptions(
+#       enter = animations$fading_entrances$fadeInRightBig,duration = 0.25,
+#       exit = animations$fading_exits$fadeOutRightBig
+#     )
+#   )
+#   
+#   
+#   
+# mais <<- tabPanel( title = tags$div(HTML('<i class="fa fa-ellipsis-h"style = "color:#0072B2;font-size:30px"></i>')),
+#                    fluidRow(
+#                      box( title= tags$div(HTML('<i class="fa fa-ellipsis-h"style = "color:#0072B2;font-size:50px"></i>
+#                                                <b style = "padding-left:25px;color:#000000;font-size:30px">
+#                                                VEJA MAIS </b>')),width = 12 ),
+#                      tabsetPanel(
+#                        comportamento_inicial,
+#                        calculadora_seir
+#                        )
+#                      )
+#                    )
+# 
+# 
+# 
+
+
+
+ui <- tagList(
+  useBs4Dash(old_school = FALSE),
+  useShinyjs(),
+  tags$style(type = "text/css", '.logo{ filter: invert(3);}'),
+  bs4DashPage(
+    navbar = bs4DashNavbar(skin = 'dark',statusstatus = 'dark-grey', 
+                           style = "
+               border-radius: 10px;
+               box-shadow: 0 0 4px 0 rgba(69, 69, 69, 0.2);
+               margin: 0px 10px 30px 10px; padding: 10px;
+               background-image: url(virus.png);
+               background-repeat: repeat;
+               background-size: 50px 50px;
+                background-color:rgba( 19,49,71, 0.95);
+                background-blend-mode: lighten;",
+                           fluidRow(
+                             ## Logo
+                             column(
+                               width = 2,
+                               tags$a(
+                                 #href = "http://est.ufmg.br/covidlp/home/pt/", 
+                                 tags$img(class="logo",src = "virus.png", title = "COVID-19 / 15ª REGIONAL DE SAÚDE ", 
+                                          height = "100px", style = "margin-top: 10px; margin-left: 20px")
+                               )
+                             ),
+                             ## Título
+                             column(
+                               width = 10,
+                               div(
+                               div(
+                                 strong("15ª REGIONAL DE SAÚDE DO PARANÁ "),
+                                 style = "text-align: center;color:#FFFFFF;font-size:30px"),
+                               div(
+                                 strong("DASHBOARD COVID - 19")
+                                 ,style = "text-align: center;color:#FFFFFF;font-size:30px")
+                               ,style = "padding-left:180px;")
+                             )
+                            ),rightUi = div(class="mydiv",id="div1")
+                           
+                          
+                           
+                           
+                           ),
+    sidebar = bs4DashSidebar(disable = T),
+    footer = bs4DashFooter(includeHTML("footer.html")),
+    title = "Dashboard COVID 19 - 15ª REGIONAL DE SÁUDE DO PARANÁ",
+    enable_preloader = F,
+    loading_background = dblu,
+    body = withSpinner(ui_element = uiOutput("body"),type = 1)
+  
+  
+))
+
+
+
+
+shinyUI(ui = ui)

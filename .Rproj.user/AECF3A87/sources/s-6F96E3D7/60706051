@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1595037459429.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "60706051",
+    "lastKnownWriteTime" : 1595037468,
+    "last_content_update" : 1595037469585,
+    "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/teste.R",
+    "project_path" : "teste.R",
+    "properties" : {
+        "cursorPosition" : "14,12",
+        "scrollLine" : "12",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

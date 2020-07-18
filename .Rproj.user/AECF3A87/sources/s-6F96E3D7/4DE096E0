@@ -1,24 +1,24 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1595031954703.000,
+    "created" : 1595033261774.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "190ADB5F",
-    "lastKnownWriteTime" : 1595033279,
-    "last_content_update" : 1595033279834,
-    "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/server.R",
-    "project_path" : "server.R",
+    "id" : "4DE096E0",
+    "lastKnownWriteTime" : 1592932940,
+    "last_content_update" : 1592932940,
+    "path" : "G:/Meu Drive/covid_projetos/covid19_15RS_bs4Dash/global.R",
+    "project_path" : null,
     "properties" : {
-        "cursorPosition" : "8,66",
+        "cursorPosition" : "11,66",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 2,
+    "relative_order" : 5,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"
