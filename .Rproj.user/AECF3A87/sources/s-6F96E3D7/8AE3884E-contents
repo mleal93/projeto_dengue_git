@@ -30,7 +30,7 @@ ui <-bs4DashPage(
   sidebar = bs4DashSidebar(disable = F,
                            inputId = "main_sidebar",
                            title = strong("Dashboard Dengue",style = "text-align:center;color:#000000;font-size:22px"),
-                           src = "dengue_logo5.png",
+                           src = "https://github.com/mleal93/projeto_dengue_git/blob/master/www/dengue_logo5.png",
                            status = "primary",
                            expand_on_hover = T,
                            elevation = 5,skin = "light",
@@ -51,7 +51,32 @@ ui <-bs4DashPage(
                              )),
   
   
-  footer = bs4DashFooter(includeHTML("www/footer.html")),
+  footer = bs4DashFooter(HTML('<div class="footer">
+  <div style="width: 100%;">
+    <center>
+       <div style="display:inline-flex">
+        <a href=" ">
+        <img src="sec_saude.png" style="height:100px">
+      </a>
+        <a href=" "> 
+          <i class="fa fa-github" style="font-size:20px; margin: 0px 5px"></i>
+          <h5>GitHub</h5>
+        </a>
+        <a href=" " style="padding-left:15px; padding-right:15px"> 
+          <i class="fas fa-globe" style="font-size:20px; margin: 0px 5px"></i>
+          <h5>Website</h5>
+        </a>
+        <a href=" " target="_blank"> 
+          <i class="fas fa-envelope" style="font-size:20px; margin: 0px 5px"></i>
+          <h5>E-mail</h5>
+        </a>
+        <a href=" ">
+        <img src="logo_uem.png" style="height:125px">
+      </a>
+      </div>
+    </center>
+  </div>
+</div>')),
   title = "Dashboard Dengue",
   enable_preloader = T,
   loading_background = dblu,
