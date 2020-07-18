@@ -1,7 +1,7 @@
 
 library(devtools)
-teste <- source("https://github.com/mleal93/projeto_dengue_git/blob/master/server.R")
-
+server <- source_url("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/server.R")
+ui <- source_url("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/ui.R")
 
 
 shinyApp(ui = ui, server = server)
