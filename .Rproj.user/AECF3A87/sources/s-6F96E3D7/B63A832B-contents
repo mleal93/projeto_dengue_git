@@ -1,6 +1,6 @@
 
 library(devtools)
-teste <- source_url("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/server.R")
+teste <- source_url("https://github.com/mleal93/projeto_dengue_git/blob/master/server.R")
 teste$value()
 
 
