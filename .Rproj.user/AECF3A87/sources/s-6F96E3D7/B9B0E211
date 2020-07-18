@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1497504705",
+    "hash" : "0",
     "id" : "B9B0E211",
     "lastKnownWriteTime" : 1595029765,
     "last_content_update" : 1595029765,
     "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/ui.R",
     "project_path" : "ui.R",
     "properties" : {
+        "cursorPosition" : "11,20",
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
