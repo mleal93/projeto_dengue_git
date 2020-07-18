@@ -8,29 +8,26 @@ dred <- 'rgb(100, 30, 30)'
 f1 <- list(family = "Arial", size = 10, color = "rgb(30, 30, 30)")
 size_card = c(8,4)
 ui <-bs4DashPage(
-  navbar = bs4DashNavbar(
-               #           style = "
-               # border-radius: 10px;
-               # box-shadow: 0 0 4px 0 rgba(69, 69, 69, 0.2);
-               # margin: 0px 10px 30px 10px; padding: 10px;
-               # background-image: url(dengue_logo6.jpg);
-               # background-repeat: norepeat;
-               # background-size: 50px 50px;
-               #  background-color:rgba( 19,49,71, 0.95);
-               #  background-blend-mode: lighten;"
+  navbar = bs4DashNavbar(rightUi = HTML('<a href="https://github.com/mleal93/projeto_dengue_git"> 
+                                          <i class="fa fa-github" style="font-size:20px; margin: 0px 20px"></i>
+                                          <h5>GitHub</h5>
+                                          </a>'),
+                         style = "
+                         background-image: url(http://www.unespar.edu.br/APUCARANA/noticias/dengue-mata-mude-sua-atitude/logo-dengue.png);
+               background-repeat: norepeat;"
                          # fluidRow(
                          #     tags$a(
-                         #       #href = "http://est.ufmg.br/covidlp/home/pt/", 
-                         #       tags$img(class="logo",src = "virus.png", title = "COVID-19 / 15ª REGIONAL DE SAÚDE ", 
-                         #                height = "100px", style = "margin-top: 10px; margin-left: 20px")
+                         #       #href = "http://est.ufmg.br/covidlp/home/pt/",
+                         #       tags$img(class="logo",src = "http://www.unespar.edu.br/APUCARANA/noticias/dengue-mata-mude-sua-atitude/logo-dengue.png", title = "DASHBOARD DENGUE ",
+                         #                height="100",width="760", style = "margin-top: 0px; margin-left: 0px")
                          #     )
                          #   )
                          ),
                          
   sidebar = bs4DashSidebar(disable = F,
                            inputId = "main_sidebar",
-                           title = strong("Dashboard Dengue",style = "text-align:center;color:#000000;font-size:22px"),
-                           src = "http://rancharia.sp.gov.br/images/noticias/855/dengue.png",
+                           title = strong("DASHBOARD",style = "color:#000000;font-size:22px"),
+                           src = "dash_logo.png",
                            status = "primary",
                            expand_on_hover = T,
                            elevation = 5,skin = "light",
@@ -55,34 +52,30 @@ ui <-bs4DashPage(
   <div style="width: 100%;">
     <center>
        <div style="display:inline-flex">
-        <a href=" ">
+        <a href="http://www.saude.pr.gov.br/">
         <img src="http://www.saude.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2020-02/LogoSaude2019_Horizontal.png" style="height:100px">
       </a>
-        <a href=" "> 
-          <i class="fa fa-github" style="font-size:20px; margin: 0px 5px"></i>
-          <h5>GitHub</h5>
-        </a>
-        <a href=" " style="padding-left:15px; padding-right:15px"> 
-          <i class="fas fa-globe" style="font-size:20px; margin: 0px 5px"></i>
-          <h5>Website</h5>
-        </a>
-        <a href=" " target="_blank"> 
-          <i class="fas fa-envelope" style="font-size:20px; margin: 0px 5px"></i>
-          <h5>E-mail</h5>
-        </a>
-        <a href=" ">
-        <img src="https://github.com/mleal93/projeto_dengue_git/blob/master/www/logo_uem.png" style="height:125px">
+      <a href="http://www.uem.br/">
+        <img src="https://s3-sa-east-1.amazonaws.com/casadenoticias/article_shots/images/27939/header/uem-modelo-01.png?1580416312" style="width:210px;padding-left:15px;">
       </a>
+       <a href="http://www.des.uem.br/">
+        <img src="http://www.pcs.uem.br/des/graduacao-2/Documentos/logo-des/" style="width:125px;padding-left:15px;">
+      </a>
+       
       </div>
     </center>
   </div>
 </div>')),
   title = "Dashboard Dengue",
-  enable_preloader = T,
+  enable_preloader = F,
   loading_background = dblu,
   controlbar = dashboardControlbar(),
   
-  body = bs4DashBody(tabItems(
+  body = bs4DashBody(
+               #        style = "
+               #           background-image: url(http://www.unespar.edu.br/APUCARANA/noticias/dengue-mata-mude-sua-atitude/logo-dengue.png);
+               # background-repeat: norepeat;",
+                     tabItems(
     tabItem(tabName = "tab1",
             fluidRow(column(width=12,
                             HTML('<i class="fa fa-home"style = "color:#0072B2;font-size:50px;padding-left:0px;"></i>
