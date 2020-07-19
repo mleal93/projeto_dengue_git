@@ -30,7 +30,7 @@ rm_accent <- function(str,pattern="all") {
   return(str)
 }
 library(RCurl)
-url <- getURL("https://raw.github.com/aronlindberg/latent_growth_classes/master/LGC_data.csv")
+url <- getURL("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv")
 
 regionais                    <-  read.csv(file = url,header = T,encoding = "UTF-8")
 
