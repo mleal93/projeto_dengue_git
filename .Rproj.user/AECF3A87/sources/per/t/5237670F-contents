@@ -1,0 +1,8 @@
+source(file = "librarys.R",encoding = "UTF-8")
+df <- read.table(file = "dbase.csv",header = T,sep = ",")
+df <- df[df$CLASSI_FIN==10|df$CLASSI_FIN==11|df$CLASSI_FIN==12,]
+obj1     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/server.R")
+obj2     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/ui.R")
+
+
+shinyApp(ui = ui, server = server)

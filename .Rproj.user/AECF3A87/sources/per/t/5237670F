@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1595182883694.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "608305337",
+    "id" : "5237670F",
+    "lastKnownWriteTime" : 1595184259,
+    "last_content_update" : 1595184259337,
+    "path" : "G:/Meu Drive/projeto_dengue/projeto_teste/app.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "8,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

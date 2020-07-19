@@ -52,8 +52,8 @@ axis.theme <- function(x.angle = 0,vjust=0,hjust=0.5){
 # df0 <- rbind(df1,df2)
 # write.csv(x = df0,file = "dbase.csv",sep = ";",col.names = T,fileEncoding = "UTF-8",row.names = F)
 
-df <- read.table(file = "dbase.csv",header = T,sep = ",")
-df <- df[df$CLASSI_FIN==10|df$CLASSI_FIN==11|df$CLASSI_FIN==12,]
+# df <- read.table(file = "dbase.csv",header = T,sep = ",")
+# df <- df[df$CLASSI_FIN==10|df$CLASSI_FIN==11|df$CLASSI_FIN==12,]
 ################################# SEXO #####################################################################
 tab.sexo01 <-table(df$CS_SEXO)#J? multiplicado por 100%, ORDEM: FEM, INDETERMINADO, MASC
 
@@ -361,7 +361,7 @@ df.label <- ymd(as.Date(df01$label))
 df01$label <- df.label
 
 # Then you can create the xts necessary to use dygraph
-don <- xts(x = df01$values, order.by = df01$label)
+don <- data.frame(values=df01$values,row.names = df01$label)
 
 # Finally the plot
 plot.serie_dygraph <- dygraph(don) %>%
