@@ -20,7 +20,7 @@ library(ggplot2)
 library(lubridate)
 library(ggrepel)
 library(tidyverse)
-library(dygraphs)
+#library(dygraphs)
    
 setview <- data.frame(lng= -51.6391,lat = -24.5401)
 blu <- 'rgb(100, 140, 240)'
@@ -172,6 +172,6 @@ size_card = c(8,4)
    output$descritive.gestante2 <- renderPlot({plot.gestante2 })
    output$descritive.series <- renderPlotly({plot.series })
    
-   output$teste <- renderDygraph({plot.serie_dygraph })
+  # output$teste <- renderDygraph({plot.serie_dygraph })
 
 }

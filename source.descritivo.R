@@ -14,7 +14,7 @@ library(shinyBS)
 library(shinyjs)
 library(plotly)
 library(RCurl)
-library (readr)
+library(readr)
 library(ggplot2)
 library(lubridate)
 library(tidyverse)
@@ -348,29 +348,29 @@ plot.series <- plotly.series(data = df01)
 
 
 
-# Library
-library(dygraphs)
- library(xts)          # To make the convertion data-frame / xts format
-library(tidyverse)
-library(lubridate)
-blu <- 'rgb(100, 140, 240)'
-dblu <- 'rgb(0, 0, 102)'
-red <- 'rgb(200, 30, 30)'
-dred <- 'rgb(100, 30, 30)'
-df.label <- ymd(as.Date(df01$label))
-df01$label <- df.label
-
-# Then you can create the xts necessary to use dygraph
-don <- xts(x = df01$values, order.by = df01$label)
-
-# Finally the plot
-plot.serie_dygraph <- dygraph(don) %>%
-  dyOptions(labelsUTC = TRUE, fillGraph=TRUE, fillAlpha=0.1, drawGrid = FALSE, colors=dblu) %>%
-  dyRangeSelector() %>%
-  dyCrosshair(direction = "vertical") %>%
-  dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
-  dyRoller(rollPeriod = 1)
-
-# save the widget
-# library(htmlwidgets)
-# saveWidget(p, file=paste0( getwd(), "/HtmlWidget/dygraphs318.html"))
+# # Library
+# library(dygraphs)
+#  library(xts)          # To make the convertion data-frame / xts format
+# library(tidyverse)
+# library(lubridate)
+# blu <- 'rgb(100, 140, 240)'
+# dblu <- 'rgb(0, 0, 102)'
+# red <- 'rgb(200, 30, 30)'
+# dred <- 'rgb(100, 30, 30)'
+# df.label <- ymd(as.Date(df01$label))
+# df01$label <- df.label
+# 
+# # Then you can create the xts necessary to use dygraph
+# don <- xts(x = df01$values, order.by = df01$label)
+# 
+# # Finally the plot
+# plot.serie_dygraph <- dygraph(don) %>%
+#   dyOptions(labelsUTC = TRUE, fillGraph=TRUE, fillAlpha=0.1, drawGrid = FALSE, colors=dblu) %>%
+#   dyRangeSelector() %>%
+#   dyCrosshair(direction = "vertical") %>%
+#   dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
+#   dyRoller(rollPeriod = 1)
+# 
+# # save the widget
+# # library(htmlwidgets)
+# # saveWidget(p, file=paste0( getwd(), "/HtmlWidget/dygraphs318.html"))
