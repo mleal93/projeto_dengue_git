@@ -114,7 +114,7 @@ plot.sexo <- plotly.pie(data = data_sexo)
 ################################# IDADE ####################################################################
 nascimento  <- df$DT_NASC
 notificacao <- df$DT_NOTIFIC
-idade<-as.numeric(floor((notificacao-nascimento)/365.25))
+idade<-as.numeric(floor((as.Date(notificacao)-as.Date(nascimento))/365.25))
 id<-data.frame(idade,nascimento,notificacao)
 
 id$clas.idade <- ifelse(id$idade < 11, "0-10",
