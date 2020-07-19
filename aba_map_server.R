@@ -35,7 +35,7 @@ library (readr)
 
 urlfile="https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"
 
-regionais<-read_csv(url(urlfile))
+regionais<-read_csv(url(urlfile),col_names = T)
 
 
 #regionais         <-  read.table(source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"),sep = ",")
