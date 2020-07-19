@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2148063445",
     "id" : "909332CA",
-    "lastKnownWriteTime" : 1595177710,
-    "last_content_update" : 1595177710,
+    "lastKnownWriteTime" : 1595179664,
+    "last_content_update" : 1595179664453,
     "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/server.R",
     "project_path" : "server.R",
     "properties" : {
-        "cursorPosition" : "34,43",
+        "cursorPosition" : "0,0",
         "scrollLine" : "0"
     },
     "read_only" : false,

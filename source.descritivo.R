@@ -1,4 +1,3 @@
-#source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/librarys.R",encoding = "UTF-8",local = F)
 library(brazilmaps)
 library(sf)
 library(maps)

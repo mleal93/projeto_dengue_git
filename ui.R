@@ -1,6 +1,24 @@
-
-source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/librarys.R",encoding = "UTF-8",local = F)
-
+library(brazilmaps)
+library(sf)
+library(maps)
+library(mapdata)
+library(raster)
+library(dplyr)
+library(RColorBrewer)
+library(shiny)
+library(bs4Dash)
+library(leaflet)
+library(shinyWidgets)
+library(shinycssloaders)
+library(shinyBS)
+library(shinyjs)
+library(plotly)
+library(RCurl)
+library (readr)
+library(ggplot2)
+library(lubridate)
+library(ggrepel)
+library(tidyverse)
 source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
 jscode <- "shinyjs.toTop = function() {document.body.scrollTop = 0;}"
 jscode1 <- "shinyjs.toTop = function() {document.body.scrollTo = (0,700);}"
