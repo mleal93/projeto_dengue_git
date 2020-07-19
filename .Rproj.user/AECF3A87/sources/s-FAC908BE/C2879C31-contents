@@ -31,10 +31,14 @@ rm_accent <- function(str,pattern="all") {
 }
 library(RCurl)
 
+library (readr)
+
+urlfile="https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"
+
+regionais<-read_csv(url(urlfile))
 
 
-
-regionais         <-  read.csv(file = getURL("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"),header = T,encoding = "UTF-8",sep = ";")
+#regionais         <-  read.table(source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"),sep = ",")
 
 
 maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class= "sf")
