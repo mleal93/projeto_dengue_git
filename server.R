@@ -1,5 +1,4 @@
-source(file = "librarys.R",encoding = "UTF-8",local = F)
-source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
+source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/librarys.R",encoding = "UTF-8",local = F)
 source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/source.descritivo.R",encoding = "UTF-8",local = F)
 
 setview <- data.frame(lng= -51.6391,lat = -24.5401)
@@ -33,7 +32,7 @@ size_card = c(8,4)
    
    
    output$map.descritive <- renderLeaflet({
-     
+     source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
      leaflet(maps.cities2,
                  options = list(zoomControl = F)
          ) %>% addTiles() %>%
@@ -64,7 +63,7 @@ size_card = c(8,4)
   
    
    observe({
-     
+     source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
      output$map.descritive2 <- renderLeaflet({
        if(is.null(input$map.descritive_shape_click)){return()}
        leaflet(maps.cities2,

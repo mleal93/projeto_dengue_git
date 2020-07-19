@@ -1,13 +1,5 @@
-#rm(list=ls())
-library(ISOweek)
-library(tidyverse)
-library(ggrepel)
-library(dplyr)
-library(foreign)
-library(lubridate)
-library(plotly)
-library(RColorBrewer)
-library("ggplot2")
+source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/librarys.R",encoding = "UTF-8",local = F)
+
 textsize <- 18
 textsize2 <- 18
 
