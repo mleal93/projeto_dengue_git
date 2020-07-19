@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1595127753738.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "436087B6",
+    "lastKnownWriteTime" : 1595135991,
+    "last_content_update" : 1595135991618,
+    "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/source.descritivo.R",
+    "project_path" : "source.descritivo.R",
+    "properties" : {
+        "cursorPosition" : "339,11",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

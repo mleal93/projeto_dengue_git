@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1595122866914.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "15B067C0",
+    "lastKnownWriteTime" : 1595122953,
+    "last_content_update" : 1595122953915,
+    "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/librarys.R",
+    "project_path" : "librarys.R",
+    "properties" : {
+        "cursorPosition" : "13,15",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
