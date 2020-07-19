@@ -202,12 +202,13 @@ ui <-bs4DashPage(sidebar_collapsed = TRUE,
                              bs4TabPanel(tabName = strong("SÉRIE"),active = FALSE,
                                          plotlyOutput(outputId = "descritive.series")
                                          
-                             ),
+                             )
                              
-                             bs4TabPanel(tabName = strong("SÉRIE1"),active = FALSE,
-                                         dygraphOutput("teste")
-                                         
-                             ))
+                             # bs4TabPanel(tabName = strong("SÉRIE1"),active = FALSE,
+                             #             dygraphOutput("teste")
+                             #             
+                             # )
+                             )
             ),
            
             
