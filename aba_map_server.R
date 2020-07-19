@@ -22,7 +22,7 @@ library(lubridate)
 library(ggrepel)
 library(tidyverse)
 library(dygraphs)
-library(xts)    
+    
 rm_accent <- function(str,pattern="all") {
   if(!is.character(str))
     str <- as.character(str)

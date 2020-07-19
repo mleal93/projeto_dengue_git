@@ -205,8 +205,8 @@ ui <-bs4DashPage(sidebar_collapsed = TRUE,
                                          
                              ),
                              
-                             bs4TabPanel(tabName = strong("SÉRIE"),active = FALSE,
-                                         dygraphOutput(outputId  = "descritive.series.d")
+                             bs4TabPanel(tabName = strong("SÉRIE1"),active = FALSE,
+                                         dygraphOutput("teste")
                                          
                              ))
             ),
