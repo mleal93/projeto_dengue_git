@@ -29,8 +29,10 @@ rm_accent <- function(str,pattern="all") {
     str <- chartr(symbols[i],nudeSymbols[i], str)
   return(str)
 }
+library(RCurl)
+url <- getURL("https://raw.github.com/aronlindberg/latent_growth_classes/master/LGC_data.csv")
 
-regionais                    <- source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv",encoding = "UTF-8",local = F)
+regionais                    <-  read.csv(file = url,header = T,encoding = "UTF-8")
 
 regionais$nome               <- tolower(rm_accent(regionais$nome))
 
