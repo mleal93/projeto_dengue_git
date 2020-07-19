@@ -1,3 +1,4 @@
+rm(list=ls())
 library(ISOweek)
 library(tidyverse)
 library(ggrepel)
@@ -37,17 +38,11 @@ axis.theme <- function(x.angle = 0,vjust=0,hjust=0.5){
 #setwd("C:/Users/Dani Granzotto/Google Drive/DengueEstatistica/Dados")
 # df1 <- read.dbf("www/DENGON193152se29.dbf")
 # df2 <- read.dbf("www/DENGON200129se29.dbf")
+# df0 <- rbind(df1,df2)
+# write.csv(x = df0,file = "dbase.csv",sep = ";",col.names = T,fileEncoding = "UTF-8",row.names = F)
 
-df1 <- read.table(file = "dbaseI.csv",header = T,sep = ",")
-df2 <- read.table(file = "dbaseII.csv",header = T,sep = ",")
-
-df0 <- rbind(df1,df2)
-df0 <- df0[df0$CLASSI_FIN==10|df0$CLASSI_FIN==11|df0$CLASSI_FIN==12,]
-# table(df$CLASSI_FIN)
-# range(df$DT_NOTIFIC,na.rm = T)
-    
-
-
+df <- read.table(file = "dbase.csv",header = T,sep = ",")
+df <- df[df$CLASSI_FIN==10|df$CLASSI_FIN==11|df$CLASSI_FIN==12,]
 ################################# SEXO #####################################################################
 tab.sexo01 <-table(df$CS_SEXO)#J? multiplicado por 100%, ORDEM: FEM, INDETERMINADO, MASC
 
@@ -253,7 +248,7 @@ plot.gestante2 <- ggplot(data = d,
 # ################################# SERIE CASOS MENSAIS ######################################################
 
 
-df <- df %>%
+df01 <- df %>%
   mutate(date = ymd(DT_NOTIFIC),
          dia = day(DT_NOTIFIC),
          mes = month(DT_NOTIFIC),
@@ -261,8 +256,8 @@ df <- df %>%
          semana = format(DT_NOTIFIC, format="%Y-%U")) %>% 
   group_by(semana) %>%
   summarise(frequencia = n())
-df <-data.frame(label=df$semana,values=df$frequencia)
-
+df01 <-data.frame(label=df01$semana,values=df01$frequencia)
+df01 <-df01[1:355,]
 
 plotly.series <- function(data = data,title = "SÉRIE DOS CASOS"){
   # data=data_sexo
@@ -336,10 +331,9 @@ plotly.series <- function(data = data,title = "SÉRIE DOS CASOS"){
   
 }
 
-plot.series <- plotly.series(data = df)
+plot.series <- plotly.series(data = df01)
 
 
 
 
-# write.csv(x = df1,file = "dbaseI.csv",sep = ";",col.names = T,fileEncoding = "UTF-8")
-# write.csv(x = df2,file = "dbaseII.csv",sep = ";",col.names = T,fileEncoding = "UTF-8")
+

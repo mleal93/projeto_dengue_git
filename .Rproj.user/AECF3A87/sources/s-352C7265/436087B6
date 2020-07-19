@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2790081829",
+    "hash" : "0",
     "id" : "436087B6",
-    "lastKnownWriteTime" : 1595139320,
-    "last_content_update" : 1595139320283,
+    "lastKnownWriteTime" : 1595141409,
+    "last_content_update" : 1595141409137,
     "path" : "G:/Meu Drive/projeto_dengue/projeto_dengue_git/source.descritivo.R",
     "project_path" : "source.descritivo.R",
     "properties" : {
-        "cursorPosition" : "43,0",
-        "scrollLine" : "30"
+        "cursorPosition" : "250,4",
+        "scrollLine" : "249"
     },
     "read_only" : false,
     "read_only_alternatives" : [
