@@ -29,9 +29,7 @@ rm_accent <- function(str,pattern="all") {
     str <- chartr(symbols[i],nudeSymbols[i], str)
   return(str)
 }
-library(RCurl)
 
-library (readr)
 
 urlfile="https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"
 
@@ -42,15 +40,15 @@ regionais<-read_csv(url(urlfile),col_names = T)
 
 
 maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class= "sf")
-maps.cities$nome      <- as.character(maps.cities$nome)
+maps.cities$nome      <- as.character(maps.cities$nomes)
 maps.state            <- get_brmap(geo = "State", geo.filter = list(State=41),class      = "sf")
 # maps.meso             <- get_brmap(geo = "MesoRegion", geo.filter = list(State=41),class      = "sf")
 # maps.micro            <- get_brmap(geo = "Micro", geo.filter = list(State=41),class      = "sf")
 # brasil_map            <- get_brmap(geo = "State",class      = "sf")
 
 
-cities          <- data.frame(nome=maps.cities$nome,City=maps.cities$City)
-cities$nome     <-  tolower(rm_accent(cities$nome))
+cities          <- data.frame(nome=maps.cities$nomes,City=maps.cities$City)
+cities$nome     <-  tolower(rm_accent(cities$nomes))
 cities.completo <- left_join(x = regionais,y = cities,"nome")
 maps.cities2    <-  left_join(x = maps.cities,y = cities.completo,"City")
 
