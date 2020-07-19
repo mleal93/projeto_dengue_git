@@ -1,5 +1,6 @@
 
 source(file = "librarys.R",encoding = "UTF-8",local = F)
+source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
 jscode <- "shinyjs.toTop = function() {document.body.scrollTop = 0;}"
 jscode1 <- "shinyjs.toTop = function() {document.body.scrollTo = (0,700);}"
 espaco_html <<- function(n=6){
@@ -98,27 +99,8 @@ ui <-bs4DashPage(sidebar_collapsed = TRUE,
     tabItem(tabName = "tab1",
             fluidRow(column(width=12,
                             HTML('<i class="fa fa-home"style = "color:#0072B2;font-size:50px;padding-left:0px;"></i>
-                                  <b style = "padding-left:15px;color:#000000;font-size:30px;">PANORAMA GERAL - DASHBOARD DENGUE </b>'))),
-            fluidRow(
-              lapply(1:2, FUN = function(i) {
-                bs4Sortable(
-                  width = size_card[i],
-                  lapply(1:2, FUN = function(j) {
-                    bs4Card(
-                      title = tags$div(HTML('<i class="fa fa-th-largestyle = "color:#0072B2;font-size:25px"></i>'),
-                                       tags$b(" CARDS"),style="font-size:24px"),
-                      status = "transparent", width = 12,
-                      closable = FALSE,
-                      maximizable = TRUE, 
-                      collapsible = TRUE,
-                      collapsed = FALSE,
-                      labelText = icon("question"),
-                      labelTooltip = HTML("Clieque no icone '+' para ver mais informações. Clique no icone [ ] para ampliar para tela cheia.")
-                    )
-                  })
-                )
-              })
-            )
+                                  <b style = "padding-left:15px;color:#000000;font-size:30px;">PANORAMA GERAL - DASHBOARD DENGUE </b>')))
+           
             
             ),
     

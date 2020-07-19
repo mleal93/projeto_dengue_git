@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source(file = "librarys.R",encoding = "UTF-8",local = F)
 rm_accent <- function(str,pattern="all") {
   if(!is.character(str))
@@ -37,15 +37,15 @@ regionais<-read_csv(url(urlfile),col_names = T)
 
 regionais$nome      <- tolower(rm_accent(as.character(regionais$nome)))
 
-maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class= "sf")
+maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class="sf")
 maps.cities$nome      <- tolower(rm_accent(as.character(maps.cities$nome)))
-maps.state            <- get_brmap(geo = "State", geo.filter = list(State=41),class      = "sf")
+maps.state            <- get_brmap(geo = "State", geo.filter = list(State=41),class = "sf")
 
 cities          <- data.frame(nome=maps.cities$nome,City=maps.cities$City)
 cities.completo <- left_join(x = regionais,y = cities,"nome")
 
 
-maps.cities2    <-  left_join(x = maps.cities,y = cities.completo,"City")
+maps.cities2    <<-  left_join(x = maps.cities,y = cities.completo,"City")
 
 maps.cities2$macroregional[33] <- "Oeste"
 maps.cities2$macroregional[131] <- "Norte"
