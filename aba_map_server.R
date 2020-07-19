@@ -1,4 +1,23 @@
 #rm(list=ls())
+
+library(brazilmaps)
+library(sf)
+library(maps)
+library(mapdata)
+library(raster)
+library(dplyr)
+library(RColorBrewer)
+library(shiny)
+library(bs4Dash)
+library(leaflet)
+library(shinyWidgets)
+library(shinycssloaders)
+library(shinyBS)
+library(shinyjs)
+library(plotly)
+library(RCurl)
+
+library (readr)
 source(file = "librarys.R",encoding = "UTF-8",local = F)
 rm_accent <- function(str,pattern="all") {
   if(!is.character(str))
