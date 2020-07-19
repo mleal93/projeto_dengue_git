@@ -1,5 +1,6 @@
-rm(list=ls())
-source(file = "librarys.R",encoding = "UTF-8",local = F)
+
+source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/librarys.R",encoding = "UTF-8",local = F)
+
 rm_accent <- function(str,pattern="all") {
   if(!is.character(str))
     str <- as.character(str)
@@ -45,7 +46,7 @@ cities          <- data.frame(nome=maps.cities$nome,City=maps.cities$City)
 cities.completo <- left_join(x = regionais,y = cities,"nome")
 
 
-maps.cities2    <-  left_join(x = maps.cities,y = cities.completo,"City")
+maps.cities2    <<-  left_join(x = maps.cities,y = cities.completo,"City")
 
 maps.cities2$macroregional[33] <- "Oeste"
 maps.cities2$macroregional[131] <- "Norte"
