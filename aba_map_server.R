@@ -30,11 +30,15 @@ rm_accent <- function(str,pattern="all") {
   return(str)
 }
 library(RCurl)
-url <- getURL("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv")
 
-regionais                    <-  read.csv(file = url,header = T,encoding = "UTF-8")
+regionais                   <-  source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/regionais.csv",encoding = "UTF-8")
 
-regionais$nome               <- tolower(rm_accent(regionais$nome))
+
+# regionais                    <-  read.csv(file = "regionais.csv",header = T,encoding = "UTF-8",sep = ";")
+# regionais$X.U.FEFF.nome<-rm_accent(regionais$X.U.FEFF.nome)
+# colnames(regionais)[1] <- "nomes"
+# write.csv(x = regionais,file = "regionais.csv",sep = ";",row.names = F)
+# regionais$nome               <- tolower(rm_accent(regionais$nome))
 
 maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class= "sf")
 maps.cities$nome      <- as.character(maps.cities$nome)
