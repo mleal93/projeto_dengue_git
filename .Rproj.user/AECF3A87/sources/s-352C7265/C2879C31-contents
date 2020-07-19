@@ -30,7 +30,8 @@ rm_accent <- function(str,pattern="all") {
   return(str)
 }
 
-regionais                    <- readxl::read_xlsx(path = "www/regionais.xlsx",col_names = T,sheet = "Planilha1")
+regionais                    <- source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv",encoding = "UTF-8",local = F)
+
 regionais$nome               <- tolower(rm_accent(regionais$nome))
 
 maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class= "sf")
