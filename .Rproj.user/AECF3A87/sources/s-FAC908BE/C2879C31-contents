@@ -35,21 +35,16 @@ urlfile="https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www
 
 regionais<-read_csv(url(urlfile),col_names = T)
 
-
-#regionais         <-  read.table(source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/www/regionais.csv"),sep = ",")
-
+regionais$nome      <- tolower(rm_accent(as.character(regionais$nome)))
 
 maps.cities           <- get_brmap(geo = "City", geo.filter = list(State=41),class= "sf")
-maps.cities$nome      <- as.character(maps.cities$nome)
+maps.cities$nome      <- tolower(rm_accent(as.character(maps.cities$nome)))
 maps.state            <- get_brmap(geo = "State", geo.filter = list(State=41),class      = "sf")
-# maps.meso             <- get_brmap(geo = "MesoRegion", geo.filter = list(State=41),class      = "sf")
-# maps.micro            <- get_brmap(geo = "Micro", geo.filter = list(State=41),class      = "sf")
-# brasil_map            <- get_brmap(geo = "State",class      = "sf")
-
 
 cities          <- data.frame(nome=maps.cities$nome,City=maps.cities$City)
-cities$nome     <-  tolower(rm_accent(cities$nomes))
 cities.completo <- left_join(x = regionais,y = cities,"nome")
+
+
 maps.cities2    <-  left_join(x = maps.cities,y = cities.completo,"City")
 
 maps.cities2$macroregional[33] <- "Oeste"
@@ -119,8 +114,6 @@ getColor2 <- function(x) {
   
 }
 
-getColor2(22)
-
 
 cores2 <- c()
 
@@ -129,3 +122,4 @@ for(i in 1:length(maps.cities2$macroregional)){
   cores2[i] <- getColor2(maps.cities2$regional[i])
   
 }
+
