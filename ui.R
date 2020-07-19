@@ -20,7 +20,6 @@ library(lubridate)
 library(ggrepel)
 library(tidyverse)
 library(dygraphs)
-library(xts)    
 source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
 jscode <- "shinyjs.toTop = function() {document.body.scrollTop = 0;}"
 jscode1 <- "shinyjs.toTop = function() {document.body.scrollTo = (0,700);}"
