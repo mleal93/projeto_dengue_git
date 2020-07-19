@@ -172,6 +172,6 @@ size_card = c(8,4)
    output$descritive.gestante2 <- renderPlot({plot.gestante2 })
    output$descritive.series <- renderPlotly({plot.series })
    
-  #f output$teste <- renderDygraph({plot.serie_dygraph })
+  output$teste <- renderDygraph({plot.serie_dygraph })
 
 }
