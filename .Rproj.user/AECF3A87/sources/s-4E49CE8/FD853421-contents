@@ -1,0 +1,6 @@
+source(file = "librarys.R",encoding = "UTF-8")
+obj1     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/server.R")
+obj2     <- source("https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/ui.R")
+
+
+shinyApp(ui = ui, server = server)

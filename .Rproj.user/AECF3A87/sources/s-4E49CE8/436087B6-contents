@@ -39,7 +39,7 @@ df1 <- read.dbf("www/DENGON193152se29.dbf")
 df2 <- read.dbf("www/DENGON200129se29.dbf")
 
 df0 <- rbind(df1,df2)
-df <- df0[df0$CLASSI_FIN==10|df0$CLASSI_FIN==11|df0$CLASSI_FIN==12,]
+df0 <- df0[df0$CLASSI_FIN==10|df0$CLASSI_FIN==11|df0$CLASSI_FIN==12,]
 # table(df$CLASSI_FIN)
 # range(df$DT_NOTIFIC,na.rm = T)
     
@@ -255,16 +255,12 @@ df <- df %>%
          dia = day(DT_NOTIFIC),
          mes = month(DT_NOTIFIC),
          ano = year(DT_NOTIFIC),
-         semana = format(DT_NOTIFIC, format="%Y-%U"),
-         label = format(DT_NOTIFIC, format="%m-%Y-%U"))
+         semana = format(DT_NOTIFIC, format="%Y-%U")) %>% 
+  group_by(semana) %>%
+  summarise(frequencia = n())
+df <-data.frame(label=df$semana,values=df$frequencia)
 
 
-df2<- df %>% group_by(semana) %>%
-  summarise(frequencia = n(),
-            label=label)
-
-
-data_casos <-data.frame(label=df2$semana,values=df2$frequencia)
 plotly.series <- function(data = data,title = "SÉRIE DOS CASOS"){
   # data=data_sexo
   # title = "PROPORÇÃO DE CASOS POR SEXO"
@@ -307,11 +303,11 @@ plotly.series <- function(data = data,title = "SÉRIE DOS CASOS"){
     ) %>%
     ## Add update date
     add_annotations(text = paste0("Atualizado em/Updated on ", "data"),
-                    x = 0.99, y = -0.045, xref = "paper", yref = "paper",
+                    x = 0.99, y = -0.033, xref = "paper", yref = "paper",
                     font = list(family = "Arial", size = 11), align = "right",
                     showarrow = FALSE) %>%
     add_annotations(text = "Fonte/Source: SESA/PR",
-                    x = 0, y = -0.045, xref = "paper", yref = "paper",
+                    x = 0, y = -0.033, xref = "paper", yref = "paper",
                     font = list(family = "Arial", size = 11, color =' rgba(128, 128, 128, 0.5)'), align = "left",
                     showarrow = FALSE)
   
@@ -337,4 +333,4 @@ plotly.series <- function(data = data,title = "SÉRIE DOS CASOS"){
   
 }
 
-plot.series <- plotly.series(data = data_casos)
+plot.series <- plotly.series(data = df)

@@ -1,6 +1,7 @@
 source(file = "librarys.R",encoding = "UTF-8",local = F)
-source(file = "aba_map_server.R",encoding = "UTF-8",local = F)
-source(file = "source.descritivo.R",encoding = "UTF-8",local = F)
+source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/aba_map_server.R",encoding = "UTF-8",local = F)
+source(file = "https://raw.githubusercontent.com/mleal93/projeto_dengue_git/master/source.descritivo.R",encoding = "UTF-8",local = F)
+
 setview <- data.frame(lng= -51.6391,lat = -24.5401)
 blu <- 'rgb(100, 140, 240)'
 dblu <- 'rgb(0, 0, 102)'
